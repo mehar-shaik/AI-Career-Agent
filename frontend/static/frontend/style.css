@@ -1,0 +1,1852 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 0;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    color: #1e293b;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(99, 102, 241, 0.35),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(168, 85, 247, 0.30),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 85%,
+            rgba(6, 182, 212, 0.28),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 90%,
+            rgba(236, 72, 153, 0.22),
+            transparent 30%
+        ),
+        #f8fafc;
+
+    background-size: 120% 120%;
+
+    animation: aurora 14s ease-in-out infinite alternate;
+}
+
+
+@keyframes aurora {
+
+    0% {
+        background-position:
+            0% 0%,
+            100% 0%,
+            100% 100%,
+            0% 100%;
+    }
+
+    50% {
+        background-position:
+            30% 20%,
+            70% 30%,
+            60% 80%,
+            20% 70%;
+    }
+
+    100% {
+        background-position:
+            10% 30%,
+            90% 20%,
+            80% 70%,
+            30% 90%;
+    }
+}
+
+
+/* =========================================
+   OLD CONTAINER
+========================================= */
+
+.container {
+    width: 100%;
+    max-width: 760px;
+    margin: 40px auto;
+
+    padding: 45px;
+
+    background: rgba(255, 255, 255, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 70px rgba(31, 41, 55, 0.14);
+
+    backdrop-filter: blur(18px);
+
+    animation: cardEnter 0.7s ease;
+}
+
+
+@keyframes cardEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   ROBOT
+========================================= */
+
+.ai-icon {
+    text-align: center;
+    font-size: 52px;
+    margin-bottom: 8px;
+
+    animation: floatRobot 3s ease-in-out infinite;
+}
+
+
+@keyframes floatRobot {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+h1 {
+    text-align: center;
+
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+    color: #1e293b;
+}
+
+
+.subtitle {
+    text-align: center;
+
+    color: #64748b;
+
+    margin-bottom: 35px;
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+label {
+    display: block;
+
+    margin-top: 22px;
+    margin-bottom: 9px;
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 11px;
+
+    color: #1e293b;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: all 0.25s ease;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+input:hover,
+textarea:hover {
+    border-color: #94a3b8;
+}
+
+
+input:focus,
+textarea:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.10);
+
+    transform: translateY(-1px);
+}
+
+
+textarea {
+    height: 130px;
+
+    resize: vertical;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+button {
+    width: 100%;
+
+    margin-top: 28px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        90deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(79, 70, 229, 0.25);
+}
+
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   RESULT
+========================================= */
+
+#result {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+    color: #334155;
+
+    line-height: 1.7;
+
+    animation: resultEnter 0.5s ease;
+}
+
+
+@keyframes resultEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#result h3 {
+    color: #1e293b;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #4f46e5;
+
+    font-weight: 600;
+}
+
+
+.loading span {
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #6366f1;
+
+    animation: dots 1.2s infinite;
+}
+
+
+.loading span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+
+.loading span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+
+@keyframes dots {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    30% {
+        transform: translateY(-6px);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   RESUME UPLOAD
+========================================= */
+
+#resume {
+    background: rgba(248, 250, 252, 0.9);
+
+    border: 2px dashed #a5b4fc;
+
+    padding: 12px;
+
+    cursor: pointer;
+}
+
+
+#resume:hover {
+    border-color: #6366f1;
+
+    background: #eef2ff;
+}
+
+
+/* Resume Analyze Button */
+
+button[onclick="uploadResume()"] {
+    margin-top: 15px;
+
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #db2777
+    );
+}
+
+
+button[onclick="uploadResume()"]:hover {
+    box-shadow:
+        0 12px 28px rgba(124, 58, 237, 0.25);
+}
+
+
+/* Resume Result */
+
+#resumeResult {
+    margin-top: 25px;
+
+    padding: 22px;
+
+    background: rgba(248, 250, 252, 0.9);
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+    color: #334155;
+
+    line-height: 1.7;
+
+    animation: resultEnter 0.5s ease;
+}
+
+
+#resumeResult h3 {
+    color: #4f46e5;
+
+    margin-bottom: 12px;
+}
+
+
+/* Detected Skills */
+
+#resumeResult ul {
+    margin-top: 10px;
+
+    padding-left: 20px;
+}
+
+
+#resumeResult li {
+    margin-bottom: 6px;
+
+    color: #334155;
+}
+
+
+/* Skill badges */
+
+#resumeResult li {
+    list-style: none;
+
+    display: inline-block;
+
+    margin: 5px;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #eef2ff;
+
+    color: #4338ca;
+
+    border: 1px solid #c7d2fe;
+
+    font-weight: 600;
+}
+
+
+.skill-source {
+    margin-top: 15px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   AI RESPONSE
+========================================= */
+
+.ai-response {
+    margin-top: 15px;
+
+    line-height: 1.8;
+
+    color: #334155;
+}
+
+
+.ai-response br {
+    display: block;
+
+    content: "";
+
+    margin-bottom: 8px;
+}
+
+
+.ai-response strong {
+    font-weight: 700;
+
+    color: #4f46e5;
+}
+
+
+.ai-response h3,
+.ai-response h4 {
+    margin-top: 20px;
+
+    margin-bottom: 8px;
+}
+
+
+.ai-response h4 {
+    font-size: 18px;
+}
+
+
+.ai-response li {
+    margin-bottom: 6px;
+
+    margin-left: 20px;
+}
+
+
+/* =========================================
+   SKILL SCORE
+========================================= */
+
+.skill-score {
+    margin: 20px 0;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+
+.skill-score strong {
+    font-size: 18px;
+}
+
+
+.score-bar {
+    width: 100%;
+
+    height: 12px;
+
+    background: #e2e8f0;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-top: 8px;
+}
+
+
+.score-fill {
+    height: 100%;
+
+    border-radius: 10px;
+
+    background: #4f46e5;
+
+    transition: width 0.5s ease;
+}
+
+
+/* =========================================
+   RESET BUTTON
+========================================= */
+
+#resetBtn {
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+    width: 100%;
+
+    height: 100vh;
+
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        380px minmax(0, 1fr);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   LEFT PANEL
+========================================= */
+
+.left-panel {
+    background: white;
+
+    padding: 35px;
+
+    border-right: 1px solid #e2e8f0;
+
+    height: 100vh;
+
+    min-height: 0;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+}
+
+
+.left-panel .ai-icon {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+.left-panel h1 {
+    margin: 0;
+
+    font-size: 28px;
+}
+
+
+.left-panel .subtitle {
+    color: #64748b;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.section {
+    margin-bottom: 30px;
+}
+
+
+.section h2 {
+    font-size: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   DASHBOARD FORM
+========================================= */
+
+.left-panel label {
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 7px;
+
+    font-weight: 600;
+}
+
+
+.left-panel input[type="file"],
+.left-panel select,
+.left-panel textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    background: white;
+}
+
+
+.left-panel textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* =========================================
+   DASHBOARD BUTTONS
+========================================= */
+
+.primary-btn,
+.secondary-btn,
+.reset-btn {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    margin-top: 12px;
+}
+
+
+.primary-btn {
+    background: #4f46e5;
+
+    color: white;
+}
+
+
+.primary-btn:hover {
+    background: #4338ca;
+}
+
+
+.secondary-btn {
+    background: #0f172a;
+
+    color: white;
+}
+
+
+.secondary-btn:hover {
+    background: #7a4ff0;
+}
+
+
+.reset-btn {
+    background: #e2e8f0;
+
+    color: #334155;
+}
+
+
+.reset-btn:hover {
+    background: #cbd5e1;
+}
+
+
+/* =========================================
+   RIGHT PANEL
+========================================= */
+
+.right-panel {
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100vh;
+
+    min-height: 0;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   RESULT HEADER
+========================================= */
+
+.result-header {
+    flex-shrink: 0;
+
+    padding: 30px 40px;
+
+    background: white;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
+.result-header h2 {
+    margin: 0 0 6px;
+}
+
+
+.result-header p {
+    margin: 0;
+
+    color: #64748b;
+}
+
+
+/* =========================================
+   ONLY AI RESULT SCROLLS
+========================================= */
+
+.result-content {
+    flex: 1;
+
+    min-height: 0;
+
+    height: 0;
+
+    padding: 40px;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+    max-width: 600px;
+
+    margin: 100px auto;
+
+    text-align: center;
+
+    color: #64748b;
+}
+
+
+.empty-icon {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+}
+
+
+.empty-state h3 {
+    color: #334155;
+}
+
+
+/* =========================================
+   AI RESPONSE CARD
+========================================= */
+
+.ai-response {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    line-height: 1.8;
+
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+    html {
+        height: auto;
+
+        overflow: auto;
+    }
+
+    body {
+        height: auto;
+
+        min-height: 100vh;
+
+        overflow: auto;
+    }
+
+    .dashboard {
+        height: auto;
+
+        min-height: 100vh;
+
+        display: block;
+
+        overflow: visible;
+    }
+
+    .left-panel {
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #e2e8f0;
+
+        overflow: visible;
+    }
+
+    .right-panel {
+        height: auto;
+
+        min-height: 600px;
+
+        overflow: visible;
+    }
+
+    .result-content {
+        height: auto;
+
+        min-height: 0;
+
+        overflow: visible;
+
+        padding: 25px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 0;
+    }
+
+    .container {
+        padding: 25px;
+
+        margin: 10px auto;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+
+/* =========================================
+   ATTRACTIVE LIGHT DASHBOARD
+========================================= */
+
+html,
+body {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(129, 140, 248, 0.22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(192, 132, 252, 0.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(103, 232, 249, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f8faff,
+            #f5f3ff,
+            #f0f9ff
+        );
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+    width: 100%;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 370px minmax(0, 1fr);
+
+    gap: 18px;
+
+    padding: 18px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   LEFT PANEL
+========================================= */
+
+.left-panel {
+    height: calc(100vh - 36px);
+
+    padding: 30px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.92),
+            rgba(248, 247, 255, 0.88)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 20px 60px rgba(79, 70, 229, 0.10);
+
+    backdrop-filter: blur(18px);
+}
+
+
+/* =========================================
+   LEFT HEADER
+========================================= */
+
+.left-panel .ai-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f5f3ff
+        );
+
+    box-shadow:
+        0 8px 25px rgba(99, 102, 241, 0.12);
+}
+
+
+.left-panel h1 {
+    font-size: 28px;
+
+    background: linear-gradient(
+        90deg,
+        #4338ca,
+        #7c3aed
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+
+.left-panel .subtitle {
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.section {
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border: 1px solid #e9e7ff;
+
+    box-shadow:
+        0 8px 25px rgba(99, 102, 241, 0.05);
+}
+
+
+.section h2 {
+    color: #334155;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.left-panel input[type="file"],
+.left-panel select,
+.left-panel textarea {
+    background: #fafaff;
+
+    border: 1px solid #d8d9f5;
+
+    transition: all 0.2s ease;
+}
+
+
+.left-panel input[type="file"]:focus,
+.left-panel select:focus,
+.left-panel textarea:focus {
+    border-color: #818cf8;
+
+    box-shadow:
+        0 0 0 4px rgba(129, 140, 248, 0.12);
+}
+
+
+/* =========================================
+   ANALYZE BUTTON
+========================================= */
+
+.primary-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.18);
+}
+
+
+.primary-btn:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESUME BUTTON
+========================================= */
+
+.secondary-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #c026d3
+        );
+
+    box-shadow:
+        0 8px 20px rgba(124, 58, 237, 0.15);
+}
+
+
+/* =========================================
+   RIGHT PANEL
+========================================= */
+
+.right-panel {
+    height: calc(100vh - 36px);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.88),
+            rgba(248, 250, 255, 0.82)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 20px 60px rgba(79, 70, 229, 0.10);
+
+    backdrop-filter: blur(18px);
+}
+
+
+/* =========================================
+   RESULT HEADER
+========================================= */
+
+.result-header {
+    padding: 28px 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(238, 242, 255, 0.85),
+            rgba(250, 245, 255, 0.85)
+        );
+
+    border-bottom: 1px solid #e8e7f5;
+}
+
+
+.result-header h2 {
+    color: #312e81;
+
+    font-size: 22px;
+}
+
+
+.result-header p {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESULT AREA
+========================================= */
+
+.result-content {
+    flex: 1;
+
+    min-height: 0;
+
+    height: 0;
+
+    padding: 35px;
+
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(221, 214, 254, 0.18),
+            transparent 35%
+        );
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+    margin: 100px auto;
+
+    padding: 45px;
+
+    max-width: 550px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px solid #e8e7f5;
+
+    box-shadow:
+        0 15px 40px rgba(79, 70, 229, 0.06);
+}
+
+
+.empty-icon {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 22px;
+
+    font-size: 38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f5f3ff
+        );
+}
+
+
+.empty-state h3 {
+    color: #334155;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   AI RESPONSE
+========================================= */
+
+.ai-response {
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 1px solid #e8e7f5;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    line-height: 1.8;
+
+    box-shadow:
+        0 10px 35px rgba(79, 70, 229, 0.06);
+}
+
+
+.ai-response h3,
+.ai-response h4 {
+    color: #4338ca;
+}
+
+
+/* =========================================
+   SKILL SCORE
+========================================= */
+
+.skill-score {
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f5f3ff
+        );
+
+    border: 1px solid #ddd6fe;
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+.skill-score strong {
+    color: #4338ca;
+
+    font-size: 19px;
+}
+
+
+.score-bar {
+    height: 12px;
+
+    background: #e0e7ff;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-top: 12px;
+}
+
+
+.score-fill {
+    background:
+        linear-gradient(
+            90deg,
+            #6366f1,
+            #8b5cf6
+        );
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.left-panel::-webkit-scrollbar,
+.result-content::-webkit-scrollbar {
+    width: 7px;
+}
+
+
+.left-panel::-webkit-scrollbar-track,
+.result-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.left-panel::-webkit-scrollbar-thumb,
+.result-content::-webkit-scrollbar-thumb {
+    background: #c7d2fe;
+
+    border-radius: 10px;
+}
+
+
+.left-panel::-webkit-scrollbar-thumb:hover,
+.result-content::-webkit-scrollbar-thumb:hover {
+    background: #a5b4fc;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+    html,
+    body {
+        height: auto;
+
+        overflow: auto;
+    }
+
+    .dashboard {
+        height: auto;
+
+        min-height: 100vh;
+
+        display: block;
+
+        padding: 12px;
+
+        overflow: visible;
+    }
+
+    .left-panel,
+    .right-panel {
+        height: auto;
+
+        min-height: 0;
+
+        border-radius: 18px;
+
+        margin-bottom: 12px;
+    }
+
+    .result-content {
+        height: auto;
+
+        overflow: visible;
+    }
+}
+
+/* =========================================
+   CAREER ANALYSIS CARDS
+========================================= */
+
+.career-results {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+.result-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 5px;
+}
+
+
+.result-title > span {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #eef2ff,
+        #f5f3ff
+    );
+
+    font-size: 25px;
+}
+
+
+.result-title h2 {
+    margin: 0;
+
+    color: #312e81;
+
+    font-size: 24px;
+}
+
+
+.result-title p {
+    margin-top: 4px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.career-card {
+    display: flex;
+
+    gap: 18px;
+
+    padding: 24px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 25px rgba(79, 70, 229, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.career-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(79, 70, 229, 0.10);
+}
+
+
+/* =========================================
+   CARD ICON
+========================================= */
+
+.card-icon {
+    min-width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #eef2ff;
+
+    font-size: 22px;
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.card-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.career-card h3 {
+    margin: 0 0 12px;
+
+    color: #334155;
+
+    font-size: 18px;
+}
+
+
+.career-card p {
+    color: #64748b;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   SCORE CARD
+========================================= */
+
+.score-card {
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f5f3ff
+        );
+
+    border-color: #ddd6fe;
+}
+
+
+.score-card h3 {
+    color: #4338ca;
+}
+
+
+.big-score {
+    margin-top: 5px;
+
+    color: #4f46e5;
+
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   MISSING SKILLS
+========================================= */
+
+.missing-card {
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed,
+            #fffbeb
+        );
+
+    border-color: #fed7aa;
+}
+
+
+.missing-card .card-icon {
+    background: #ffedd5;
+}
+
+
+/* =========================================
+   PRIORITY
+========================================= */
+
+.priority-card {
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #ecfdf5
+        );
+
+    border-color: #bbf7d0;
+}
+
+
+.priority-card .card-icon {
+    background: #dcfce7;
+}
+
+
+/* =========================================
+   ROADMAP
+========================================= */
+
+.roadmap-card {
+    background:
+        linear-gradient(
+            135deg,
+            #faf5ff,
+            #f5f3ff
+        );
+
+    border-color: #ddd6fe;
+}
+
+
+.roadmap-card .card-icon {
+    background: #ede9fe;
+}
+
+
+/* =========================================
+   LISTS
+========================================= */
+
+.career-card ul {
+    margin: 8px 0 10px;
+
+    padding-left: 22px;
+}
+
+
+.career-card li {
+    margin-bottom: 7px;
+
+    color: #475569;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   ROADMAP PHASES
+========================================= */
+
+.phase {
+    margin-top: 18px;
+
+    margin-bottom: 8px;
+
+    padding: 10px 13px;
+
+    border-radius: 10px;
+
+    background: #eef2ff;
+
+    color: #4338ca;
+
+    font-size: 15px;
+}
+
+
+.phase-one {
+    background: #eef2ff;
+}
+
+
+.phase-two {
+    background: #ecfeff;
+}
+
+
+.phase-three {
+    background: #fef3c7;
+}
+
+
+.phase-four {
+    background: #fce7f3;
+}
+
+
+/* =========================================
+   BOLD TEXT
+========================================= */
+
+.career-card strong {
+    color: #4338ca;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .career-card {
+        padding: 18px;
+
+        gap: 12px;
+    }
+
+    .card-icon {
+        min-width: 38px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 18px;
+    }
+
+    .career-card h3 {
+        font-size: 16px;
+    }
+
+    .big-score {
+        font-size: 24px;
+    }
+}

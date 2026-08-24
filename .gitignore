@@ -1,0 +1,12 @@
+# Environment variables
+backend/career_api/.env
+# Virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Django database
+backend/db.sqlite3
