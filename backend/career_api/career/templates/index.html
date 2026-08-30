@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Career Agent</title>
+
+   <link
+    rel="stylesheet"
+    href="{% static 'frontend/style.css' %}">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- ========================= -->
+        <!-- LEFT PANEL -->
+        <!-- ========================= -->
+
+        <div class="left-panel">
+
+            <div class="ai-icon">
+                🤖
+            </div>
+
+            <h1>
+                AI Career Agent
+            </h1>
+
+            <p class="subtitle">
+                Find your skill gaps and discover what to learn next.
+            </p>
+
+
+            <!-- CAREER ANALYSIS -->
+
+            <div class="section">
+
+                <h2>
+                    🎯 Career Analysis
+                </h2>
+
+                <label for="career">
+                    Target Career
+                </label>
+
+                <select id="career">
+
+                    <option value="">
+                        Select your target career
+                    </option>
+
+                    <option value="Python Backend Developer">
+                        Python Backend Developer
+                    </option>
+
+                    <option value="Frontend Developer">
+                        Frontend Developer
+                    </option>
+
+                    <option value="Data Analyst">
+                        Data Analyst
+                    </option>
+
+                    <option value="Machine Learning Engineer">
+                        Machine Learning Engineer
+                    </option>
+
+                </select>
+
+
+                <label for="skills">
+                    Current Skills
+                </label>
+
+                <textarea
+                    id="skills"
+                    placeholder="Upload a resume or enter your skills manually..."
+                ></textarea>
+
+
+                <button
+                    type="button"
+                    id="analyzeBtn"
+                    class="primary-btn"
+                >
+                    🤖 Analyze My Career
+                </button>
+
+            </div>
+
+
+            <!-- RESUME -->
+
+            <div class="section">
+
+                <h2>
+                    📄 Resume Analysis
+                </h2>
+
+                <label for="resume">
+                    Upload Resume
+                </label>
+
+                <input
+                    type="file"
+                    id="resume"
+                    accept=".pdf"
+                >
+
+
+                <button
+                    type="button"
+                    onclick="uploadResume()"
+                    class="secondary-btn"
+                >
+                    📄 Analyze Resume
+                </button>
+
+
+                <div id="resumeResult"></div>
+
+            </div>
+
+
+            <!-- RESET -->
+
+            <button
+                type="button"
+                id="resetBtn"
+                class="reset-btn"
+            >
+                🔄 Start Over
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- RIGHT PANEL -->
+        <!-- ========================= -->
+
+        <div class="right-panel">
+
+            <div class="result-header">
+
+                <h2>
+                    🤖 AI Career Analysis
+                </h2>
+
+                <p>
+                    Your personalized skill-gap analysis and learning roadmap.
+                </p>
+
+            </div>
+
+
+            <div
+                id="result"
+                class="result-content"
+            >
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        🚀
+                    </div>
+
+                    <h3>
+                        Ready to analyze your career
+                    </h3>
+
+                    <p>
+                        Select a target career and upload your resume
+                        or enter your current skills.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="{% static 'frontend/script.js' %}"></script>
+
+</body>
+
+</html>
