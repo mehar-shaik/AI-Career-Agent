@@ -1,2 +1,5 @@
+Django
+djangorestframework
+django-cors-headers
 google-genai
 python-dotenv
