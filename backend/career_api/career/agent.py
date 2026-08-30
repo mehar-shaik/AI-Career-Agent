@@ -253,7 +253,7 @@ Do not invent database-required skills.
 """
 
         response = client.models.generate_content(
-            model="gemini-3.6-flash",
+            model="gemini-2.5-flash",
             contents=user_input,
             config=types.GenerateContentConfig(
                 system_instruction=system_instruction
