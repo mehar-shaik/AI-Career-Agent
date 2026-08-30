@@ -269,15 +269,10 @@ Do not invent database-required skills.
 
         print("CAREER AGENT ERROR:", str(e))
 
-        if "429" in str(e):
-            return {
-                "career": career_goal,
-                "matched_skills": analysis["matched_skills"],
-                "missing_skills": analysis["missing_skills"],
-                "message": (
-                    "Gemini quota exceeded, but the database "
-                    "skill analysis is available."
-                )
-            }  
-
-        return f"AI Agent Error: {str(e)}"
+        return {
+            "score": skill_score if "skill_score" in locals() else 0,
+            "analysis": (
+                f"AI Agent Error: {str(e)}"
+            ),
+            "error": str(e)
+        }

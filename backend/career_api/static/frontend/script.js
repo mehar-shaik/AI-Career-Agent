@@ -83,9 +83,9 @@ try {
         return;
     }
 
-    const score = data.result.score;
+    const score = data.result.score || 0;
 
-    const analysisText = data.result.analysis;
+    const analysisText = data.result.analysis || "No AI analysis was returned.";
 
     const formattedResult = analysisText
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
