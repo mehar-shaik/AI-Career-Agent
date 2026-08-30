@@ -9,7 +9,6 @@ from rest_framework.response import Response
 from pypdf import PdfReader
 
 from .agent import run_career_agent
-from .models import Resume
 from .tools import analyze_resume
 
 
@@ -63,42 +62,55 @@ def upload_resume(request):
         )
 
     uploaded_file = request.FILES["resume"]
+
+    # Check file type
     if not uploaded_file.name.lower().endswith(".pdf"):
         return Response(
             {
-                "error":"only PDF resumes are supported."
-            },status=400
+                "error": "Only PDF resumes are supported."
+            },
+            status=400
         )
 
-    MAX_FILE_SIZE=5*1024*1024
+    # Check file size
+    MAX_FILE_SIZE = 5 * 1024 * 1024
+
     if uploaded_file.size > MAX_FILE_SIZE:
         return Response(
             {
-                "error":"Resume File must be Smaller than 5MB."
-            },status=400
+                "error": "Resume file must be smaller than 5MB."
+            },
+            status=400
         )
 
-    # Save uploaded resume
-    resume = Resume.objects.create(
-        file=uploaded_file
-    )
+    try:
+        # Read PDF directly from uploaded file
+        reader = PdfReader(uploaded_file)
 
-    # Extract text from PDF
-    reader = PdfReader(resume.file.path)
+        resume_text = ""
 
-    resume_text = ""
+        for page in reader.pages:
+            text = page.extract_text()
 
-    for page in reader.pages:
+            if text:
+                resume_text += text + "\n"
 
-        text = page.extract_text()
+        # Analyze extracted resume text
+        result = analyze_resume(resume_text)
 
-        if text:
-            resume_text += text + "\n"
+        return Response({
+            "filename": uploaded_file.name,
+            "detected_skills": result["detected_skills"]
+        })
 
-    # Analyze extracted resume text
-    result = analyze_resume(resume_text)
+    except Exception as e:
 
-    return Response({
-        "filename": uploaded_file.name,
-        "detected_skills": result["detected_skills"]
-    })
+        print("RESUME ERROR:", str(e))
+
+        return Response(
+            {
+                "error": "Could not analyze the resume.",
+                "details": str(e)
+            },
+            status=500
+        )
