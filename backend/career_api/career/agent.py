@@ -270,7 +270,6 @@ Do not invent database-required skills.
         print("CAREER AGENT ERROR:", str(e))
 
         if "429" in str(e):
-
             return {
                 "career": career_goal,
                 "matched_skills": analysis["matched_skills"],
@@ -279,6 +278,6 @@ Do not invent database-required skills.
                     "Gemini quota exceeded, but the database "
                     "skill analysis is available."
                 )
-            }
+            }  
 
         return f"AI Agent Error: {str(e)}"

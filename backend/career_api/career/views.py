@@ -32,14 +32,28 @@ def analyze_career(request):
             status=400
         )
 
-    result = run_career_agent(
-        career_goal,
-        skills
-    )
+    try:
 
-    return Response({
-        "result": result
-    })
+        result = run_career_agent(
+            career_goal,
+            skills
+        )
+
+        return Response({
+            "result": result
+        })
+
+    except Exception as e:
+
+        print("CAREER VIEW ERROR:", str(e))
+
+        return Response(
+            {
+                "error": "Career analysis failed.",
+                "details": str(e)
+            },
+            status=500
+        )
 
 
 # ==========================================

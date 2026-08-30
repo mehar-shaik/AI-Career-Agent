@@ -60,18 +60,31 @@ try {
 
     const data = await response.json();
 
+    console.log("CAREER STATUS:", response.status);
     console.log("CAREER RESPONSE:", data);
 
-    if (!response.ok || data.error) {
+    if (!response.ok) {
 
         result.innerHTML = `
             <p>❌ ${data.error || "Career analysis failed."}</p>
+            <p>${data.details || ""}</p>
+        `;
+
+        return;
+    }
+
+    if (data.result.error) {
+
+        result.innerHTML = `
+            <p>❌ ${data.result.error}</p>
+            <p>${data.result.analysis || ""}</p>
         `;
 
         return;
     }
 
     const score = data.result.score;
+
     const analysisText = data.result.analysis;
 
     const formattedResult = analysisText
@@ -107,7 +120,8 @@ result.innerHTML = `
     console.error("CAREER ERROR:", error);
 
     result.innerHTML = `
-        <p>❌ Could not connect to the Django server.</p>
+        <p>❌ Career analysis failed.</p>
+        <p>${error.message}</p>
     `;
 }
 });
