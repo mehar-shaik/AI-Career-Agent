@@ -11,13 +11,10 @@ from career.tools import (
 )
 
 load_dotenv()
-api_key = os.getenv("GEMINI_API_KEY")
-print("================================")
-print("GEMINI KEY EXISTS:", bool(api_key))
-print("GEMINI KEY LENGTH:", len(api_key) if api_key else 0)
-print("================================")
 
-client = genai.Client(api_key=api_key)
+client = genai.Client(
+    api_key=os.getenv("GEMINI_API_KEY")
+)
 
 
 system_instruction = """
